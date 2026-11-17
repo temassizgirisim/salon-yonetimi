@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temassız Girişim · Rezzim Salon</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f6f5; color: #111827; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%); }
+        .gold-text { background: linear-gradient(135deg, #997415 0%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .app-container { max-width: 440px; margin: 0 auto; min-height: 100vh; background: #ffffff; position: relative; box-shadow: 0 20px 25px -5px rgb(0 0_0 / 0.1); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen p-0 sm:py-6">
+
+    <div class="app-container w-full flex flex-col justify-between overflow-hidden border border-gray-200 sm:rounded-3xl">
+        
+        <!-- ÜST HEADER -->
+        <header class="px-5 py-4 flex items-center justify-between border-b border-gray-100 bg-white/90 backdrop-blur sticky top-0 z-30">
+            <div class="flex items-center space-x-3">
+                <button onclick="changeTab('randevular')" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition">
+                    <i class="fa-solid fa-arrow-left text-sm"></i>
+                </button>
+                <div>
+                    <span class="text-[9px] tracking-widest text-[#997415] font-bold uppercase">TEMASSIZ GİRİŞİM · REZZİM</span>
+                    <h1 id="page-title" class="text-base font-bold text-gray-900">Tüm Randevular</h1>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button onclick="openModal('qrModal')" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-[#997415] hover:bg-gray-200 transition" title="QR Afiş">
+                    <i class="fa-solid fa-qrcode"></i>
+                </button>
+                <button onclick="openModal('aiModal')" class="w-9 h-9 rounded-full gold-gradient flex items-center justify-center text-white font-bold hover:opacity-90 transition shadow-md shadow-amber-600/20" title="Yapay Zeka">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- İÇERİK ALANI (TABLAR) -->
+        <main class="flex-1 overflow-y-auto pb-24 hide-scrollbar">
+            
+            <!-- 1. RANDEVULAR TABI -->
+            <div id="tab-randevular" class="tab-content p-4 space-y-4">
+                <div class="bg-gray-50 border border-gray-200/80 rounded-2xl p-3 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-sm font-semibold text-gray-900">Salı, 13 Ekim 2026</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-medium">21 Randevu</span>
+                    </div>
+                    <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1 text-center">
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-400 text-xs">Paz<br><span class="font-bold text-sm">11</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-400 text-xs">Pzt<br><span class="font-bold text-sm">12</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl gold-gradient text-white text-xs font-bold shadow-md shadow-amber-600/20">Sal<br><span class="text-sm">13</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-600 text-xs">Çar<br><span class="font-bold text-sm">14</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-600 text-xs">Per<br><span class="font-bold text-sm">15</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-600 text-xs">Cum<br><span class="font-bold text-sm">16</span></div>
+                        <div class="flex-shrink-0 w-12 py-2 rounded-xl bg-gray-100 text-gray-600 text-xs">Cmt<br><span class="font-bold text-sm">17</span></div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 overflow-x-auto hide-scrollbar py-1">
+                    <div class="flex items-center space-x-2 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-full flex-shrink-0">
+                        <div class="w-7 h-7 rounded-full bg-amber-500 text-white font-bold text-xs flex items-center justify-center">EY</div>
+                        <span class="text-xs font-medium text-gray-800">Elif (8)</span>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-full flex-shrink-0">
+                        <div class="w-7 h-7 rounded-full bg-stone-700 text-white font-bold text-xs flex items-center justify-center">MA</div>
+                        <span class="text-xs font-medium text-gray-800">Merve (6)</span>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-full flex-shrink-0">
+                        <div class="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">CD</div>
+                        <span class="text-xs font-medium text-gray-800">Can (7)</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2.5">
+                    <div class="flex items-start space-x-3">
+                        <span class="text-[11px] text-gray-500 font-mono w-10 pt-2 font-bold">09:00</span>
+                        <div class="flex-1 bg-white border border-gray-200 rounded-xl p-3 shadow-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-900">Deniz Aksoy</h4>
+                                <span class="text-[10px] text-gray-500">Saç Kesimi · Elif Y.</span>
+                            </div>
+                            <span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-medium">Onaylandı</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-[11px] text-gray-500 font-mono w-10 pt-2 font-bold">10:00</span>
+                        <div class="flex-1 grid grid-cols-2 gap-2">
+                            <div class="bg-amber-50/50 border border-amber-200/70 rounded-xl p-2.5">
+                                <h4 class="text-xs font-bold text-gray-900">Ayşe Kara</h4>
+                                <span class="text-[10px] text-amber-800">Saç Boyama · Merve A.</span>
+                            </div>
+                            <div class="bg-emerald-50/50 border border-emerald-200/70 rounded-xl p-2.5">
+                                <h4 class="text-xs font-bold text-gray-900">Emre Koç</h4>
+                                <span class="text-[10px] text-emerald-800">Cilt Bakımı · Can D.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center pt-4">
+                    <span class="text-[10px] text-gray-400 tracking-wider">Powered by <strong class="text-[#997415]">Temassız Girişim</strong></span>
+                </div>
+            </div>
+
+            <!-- 2. KASA & ADİSYON TABI -->
+            <div id="tab-kasa" class="tab-content hidden p-4 space-y-4">
+                <div class="gold-gradient rounded-2xl p-5 text-white shadow-lg">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold uppercase tracking-wider opacity-90">Bugünkü Ciro & Tahsilat</span>
+                        <span class="bg-black/20 text-white text-[10px] px-2 py-0.5 rounded-full font-bold"><i class="fa-solid fa-trophy mr-1 text-amber-200"></i> En İyi Gün</span>
+                    </div>
+                    <h2 class="text-3xl font-ext500 tracking-tight">17.200,00 ₺</h2>
+                    <p class="text-xs mt-1 opacity-90">21 Adisyon · Kesilen en çok: Saç Kesimi (x9)</p>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm"><span class="text-[10px] text-gray-500 block">Nakit</span><span class="text-sm font-bold text-gray-900">17.200 ₺</span></div>
+                    <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm"><span class="text-[10px] text-gray-500 block">Kart</span><span class="text-sm font-bold text-gray-900">0,00 ₺</span></div>
+                    <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm"><span class="text-[10px] text-gray-500 block">Havale</span><span class="text-sm font-bold text-gray-900">0,00 ₺</span></div>
+                </div>
+                <button onclick="openModal('storyModal')" class="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold text-xs flex items-center justify-center space-x-2 shadow-md">
+                    <i class="fa-solid fa-chart-pie text-amber-400"></i><span>Ayın Özetini Hikaye Olarak Görüntüle</span>
+                </button>
+            </div>
+
+            <!-- 3. PERSONEL TABI -->
+            <div id="tab-personel" class="tab-content hidden p-4 space-y-4">
+                <div class="bg-white border border-gray-200 p-4 rounded-2xl shadow-sm">
+                    <span class="text-xs text-gray-500 block mb-1">TOPLAM PERSONEL PRİMİ</span>
+                    <h3 class="text-2xl font-bold text-gray-900">8.015,00 ₺</h3>
+                </div>
+            </div>
+
+            <!-- 4. YORUMLAR TABI -->
+            <div id="tab-yorumlar" class="tab-content hidden p-4 space-y-4">
+                <div class="bg-white border border-gray-200 p-4 rounded-2xl shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-gray-500 block">Ortalama Puan</span>
+                        <span class="text-2xl font-bold text-gray-900">4,7</span>
+                    </div>
+                    <span class="text-[11px] bg-gray-100 px-3 py-1.5 rounded-xl font-medium">30 Değerlendirme</span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- ALT NAVİGASYON ÇUBUĞU -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex justify-between items-center z-30 shadow-lg">
+            <button onclick="changeTab('randevular')" class="nav-btn flex flex-col items-center text-[#997415] text-[10px]" data-target="randevular"><i class="fa-solid fa-calendar-days text-lg mb-0.5"></i><span>Randevular</span></button>
+            <button onclick="changeTab('kasa')" class="nav-btn flex flex-col items-center text-gray-400 text-[10px]" data-target="kasa"><i class="fa-solid fa-wallet text-lg mb-0.5"></i><span>Kasa</span></button>
+            <button onclick="changeTab('personel')" class="nav-btn flex flex-col items-center text-gray-400 text-[10px]" data-target="personel"><i class="fa-solid fa-user-tie text-lg mb-0.5"></i><span>Personel</span></button>
+            <button onclick="changeTab('yorumlar')" class="nav-btn flex flex-col items-center text-gray-400 text-[10px]" data-target="yorumlar"><i class="fa-solid fa-star text-lg mb-0.5"></i><span>Yorumlar</span></button>
+        </nav>
+    </div>
+
+    <!-- MODALLAR -->
+    <div id="qrModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gray-200 rounded-2xl w-full max-w-sm p-5 space-y-4 text-center relative shadow-2xl">
+            <button onclick="closeModal('qrModal')" class="absolute top-4 right-4 text-gray-400"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-sm font-bold text-gray-900 tracking-widest uppercase">QR AFİŞ & ONLINE RANDEVU</h3>
+            <div class="bg-gray-50 border border-gray-200 p-4 rounded-xl inline-block"><i class="fa-solid fa-qrcode text-7xl text-gray-900"></i></div>
+            <p class="text-[11px] font-mono text-[#997415] font-bold">temassizgirisim.github.io/rezerv</p>
+        </div>
+    </div>
+
+    <div id="aiModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gray-200 rounded-2xl w-full max-w-sm p-4 space-y-3 relative flex flex-col h-[450px] shadow-2xl">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                <span class="text-xs font-bold text-gray-900">Bilge · Temassız Asistan</span>
+                <button onclick="closeModal('aiModal')" class="text-gray-400"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto space-y-2 text-xs">
+                <div class="bg-gray-50 p-2.5 rounded-xl text-gray-700">Merhabalar Zilan Hanım! Temassız Girişim sistemleri üzerinden salonunuzun ciro ve personel durumunu analiz ediyorum.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="storyModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gray-200 rounded-2xl w-full max-w-xs p-5 space-y-4 text-center relative shadow-2xl">
+            <button onclick="closeModal('storyModal')" class="absolute top-4 right-4 text-gray-400"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <span class="text-[10px] text-[#997415] tracking-widest uppercase font-bold">EYLÜL 2026 · ÖZET</span>
+            <div class="gold-gradient text-white py-6 rounded-2xl"><span class="text-4xl font-black block">84</span><span class="text-xs font-bold">Toplam Randevu</span></div>
+        </div>
+    </div>
+
+    <script>
+        function changeTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-[#997415]');
+                btn.classList.add('text-gray-400');
+                if(btn.getAttribute('data-target') === tabName) {
+                    btn.classList.remove('text-gray-400');
+                    btn.classList.add('text-[#997415]');
+                }
+            });
+            const titles = {'randevular': 'Tüm Randevular', 'kasa': 'Kasa & Adisyon', 'personel': 'Personel Primleri', 'yorumlar': 'Müşteri Yorumları'};
+            document.getElementById('page-title').innerText = titles[tabName];
+        }
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+    </script>
+</body>
+</html>
